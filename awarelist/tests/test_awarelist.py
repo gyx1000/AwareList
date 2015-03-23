@@ -36,5 +36,20 @@ class TestAwareList(unittest.TestCase):
 		aw_list.append('InitialB')
 		self.assertEqual(aw_list.added, ["MyFirstAppend", "MyFirstInsert", "InitialB"])
 
+	def test_magic(self):
+		aw_list = awarelist.AwareList(['A', 'B', 'C'])
+		self.assertEqual(aw_list.added, [])
+		self.assertEqual(aw_list.removed, [])
+
+		aw_list.append('new')
+		self.assertEqual(aw_list.added, ['new'])
+		self.assertEqual(aw_list.removed, [])
+		self.assertEqual(aw_list, ['A','B','C','new'])
+
+		del aw_list[:]
+		self.assertEqual(aw_list, [])
+		self.assertEqual(aw_list.added, [])
+		self.assertEqual(aw_list.removed, ['A','B','C'])
+		
 if __name__ == '__main__':
 	unittest.main()
