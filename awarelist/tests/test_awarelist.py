@@ -50,6 +50,18 @@ class TestAwareList(unittest.TestCase):
 		self.assertEqual(aw_list, [])
 		self.assertEqual(aw_list.added, [])
 		self.assertEqual(aw_list.removed, ['A','B','C'])
+
+		aw_list = awarelist.AwareList(['A'])
+		aw_list += ['Yop']
+		self.assertEqual(aw_list, ['A', 'Yop'])
+		self.assertEqual(aw_list.added, ['Yop'])
+
+		aw_list += "ABC"
+		self.assertEqual(aw_list, ['A', 'Yop', 'A', 'B', 'C'])
+		self.assertEqual(aw_list.added, ['Yop', 'A', 'B', 'C'])
+
+		with self.assertRaises(TypeError):
+			aw_list += 1
 		
 if __name__ == '__main__':
 	unittest.main()

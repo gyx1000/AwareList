@@ -72,3 +72,12 @@ class AwareList(list):
             self._removed(v)
 
         super(AwareList, self).__delslice__(i, j)
+
+
+    def __iadd__(self, other):
+        super(AwareList, self).__iadd__(other)
+
+        for v in other:
+            self._added(v)
+
+        return self
