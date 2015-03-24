@@ -1,6 +1,6 @@
 # AwareList
 
-AwareList is a simple python class able to keep trace of added and removed elements. 
+AwareList is a simple python class able to keep track of added and removed elements. 
 
 ### Use
 
