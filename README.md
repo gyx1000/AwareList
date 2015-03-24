@@ -6,7 +6,7 @@ AwareList is a simple python class able to keep trace of added and removed eleme
 
 Initialisation:
 ```python
-aw_list = AwareList(["Element1", "Element2"]
+aw_list = AwareList(["Element1", "Element2"])
 ```
 
 Work like a normal list:
